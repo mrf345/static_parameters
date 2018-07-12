@@ -1,4 +1,3 @@
-# static_parameters
 <h1 align='center'> Django-Gtts </h1>
 <p align='center'>
 <a href='https://travis-ci.com/mrf345/static_parameters'><img src='https://travis-ci.com/mrf345/static_parameters.svg?branch=master' /></a><a href='https://coveralls.io/github/mrf345/static_parameters?branch=master'><img src='https://coveralls.io/repos/github/mrf345/static_parameters/badge.svg?branch=master' alt='Coverage Status' /></a>
