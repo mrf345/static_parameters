@@ -1,7 +1,7 @@
 """
 static_parameters
 -------------
-Simple decorators to raise a TypeError, if paramater
+Simple decorators to raise a TypeError, if parameters
 and it's static type added to the description __doc__
 as such (parameter_name: str) not satisfied.
 
