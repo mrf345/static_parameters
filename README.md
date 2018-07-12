@@ -42,3 +42,6 @@ class Example:
         ''' (a: str), ...
 ```
 > to run test `python test.py`
+
+#### Known issues:
+- doesn't work on an interactive shell
