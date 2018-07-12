@@ -39,7 +39,7 @@ setup(
     author_email='mrf345@gmail.com',
     description='Simple decorators to raise a TypeError, if paramates type not satisfied',
     long_description=__doc__,
-    packages=['static_parameter'],
+    packages=['static_parameters'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
