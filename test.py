@@ -10,7 +10,7 @@ class TestingStaticParameters(TestCase):
     def toVerify(self, a, b):
         """ 
         Simple function to verify function_parameters
-        (a: str) (b: int) 
+        ((a: str)) ((b: int)) 
         """
         return a * b
 
@@ -18,7 +18,7 @@ class TestingStaticParameters(TestCase):
     def toVerifyFalse(self, a, b):
         """ 
         Simple function to verify false function_parameters
-        (a: False) (b: False)
+        ((a: False)) ((b: False))
         """
         return a * b
     
@@ -29,8 +29,8 @@ class TestingStaticParameters(TestCase):
         def toVerify(self, a, b):
             """
             Simple function in class to verify 
-            class_parameters ( b : int )
-            ( a:int)
+            class_parameters (( b : int ))
+            (( a:int))
             """
             return a + b
     

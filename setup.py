@@ -13,7 +13,7 @@ from static_parameters import (
 
 @function_parameters
 def example(a, b):
-    '''Some example to demo (a: str) (b: str)'''
+    '''Some example to demo ((a: str)) ((b: str))'''
     return a + b
 
 # For all methods in a class
@@ -21,7 +21,7 @@ def example(a, b):
 @class_parameters(function_parameters)
 class Example:
     def exm1(a, b):
-        ''' (a: bool), (b: int)
+        ''' ((a: bool)), ((b: int))
     
     def exm2():
         ...
@@ -31,9 +31,9 @@ from setuptools import setup
 
 setup(
     name='static_parameters',
-    version='0.1',
+    version='0.2',
     url='https://github.com/mrf345/static_parameters/',
-    download_url='https://github.com/mrf345/static_parameters/archive/0.1.tar.gz',
+    download_url='https://github.com/mrf345/static_parameters/archive/0.2.tar.gz',
     license='MIT',
     author='Mohamed Feddad',
     author_email='mrf345@gmail.com',

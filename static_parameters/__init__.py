@@ -23,9 +23,9 @@ def function_parameters(function):
                     function
                 )[0] if p not in kwargs.keys()
             ]
-            for content in [i.split(')')[0
+            for content in [i.split('))')[0
             ] for i in function.__doc__.replace(
-                ' ', '').split("(") if ':' in i and i.split(
+                ' ', '').split('((') if ':' in i and i.split(
                     ':')[0] in paras_index or i.split(':'
                     )[0] in kwargs.keys()]:
                 con = content.split(':')

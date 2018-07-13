@@ -22,7 +22,7 @@ from static_parameters import function_parameters
 
 @function_parameters
 def example(a, b):
-    '''Some example to demo (a: str) (b: str)'''
+    '''Some example to demo ((a: str)) ((b: str))'''
     return a + b
 ```
 > To decorate all class methods
@@ -35,10 +35,10 @@ from static_parameters import (
 @class_parameters(function_parameters)
 class Example:
     def exm1(a, b):
-        ''' (a: bool), (b: int)
+        ''' ((a: bool)), ((b: int))'''
     
     def exm2(a):
-        ''' (a: str), ...
+        ''' ((a: str)), ...'''
 ```
 > to run test `python test.py`
 
