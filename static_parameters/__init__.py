@@ -1,6 +1,6 @@
 from sys import version_info
 from inspect import getsourcefile, isclass
-if version_info.major == 2:
+if version_info[0] == 2:
     from inspect import getargspec
     getParaList = lambda f : getargspec(f)[0]
 else:
