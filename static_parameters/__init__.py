@@ -1,6 +1,12 @@
-from inspect import (
-    getsourcefile, isclass, signature
-)
+from sys import version_info
+from inspect import getsourcefile, isclass
+if version_info.major == 2:
+    from inspect import getargspec
+    getParaList = lambda f : getargspec(f)[0]
+else:
+    from inspect import signature
+    getParaList = lambda f : list(signature(f).parameters)
+
 
 def function_parameters(function):
     """
@@ -19,11 +25,9 @@ def function_parameters(function):
             if len(function.__doc__) > 3 and len(
                     args) + len(kwargs) + len(
                         function.__defaults__ if function.__defaults__ else ''
-                        ) >= len(list(signature(function).parameters)):
+                        ) >= len(getParaList(function)):
                 paras_index = [
-                    p for p in list(signature(
-                        function
-                    ).parameters) if p not in kwargs.keys()
+                    p for p in getParaList(function) if p not in kwargs.keys()
                 ]
                 for content in [i.split('))')[0
                 ] for i in function.__doc__.replace(
