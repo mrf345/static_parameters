@@ -26,41 +26,40 @@ def function_parameters(function):
                     args) + len(kwargs) + len(
                         function.__defaults__ if function.__defaults__ else ''
                         ) >= len(getParaList(function)):
-                paras_index = [
-                    p for p in getParaList(function) if p not in kwargs.keys()
-                ]
+                paras_index = [p for p in getParaList(
+                    function) if p not in kwargs.keys()]
                 for content in [i.split('))')[0
                 ] for i in function.__doc__.replace(
                     ' ', '').split('((') if ':' in i and i.split(
                         ':')[0] in paras_index or i.split(':'
                         )[0] in kwargs.keys()]:
                     con = content.split(':')
-                    try:
-                        if not isinstance(eval(con[1]), type):
-                            raise TypeError()
-                    except Exception:
-                        raise TypeError(
-                            "function_parameters(%s(%s=%s)) " % (
-                                getsourcefile(function) + 
-                                ' ' + function.__name__,
-                                con[0], con[1]
-                            ) + "wrong type given in __doc__" 
-                        )
-                    received_arg = kwargs.get(
-                        con[0]) if kwargs.get(
-                                con[0]
-                                ) else args[
-                                    paras_index.index(
-                                        con[0])]
-                    if type(received_arg) != eval(con[1]):
-                        raise TypeError(
-                            "%s(%s=%s) requires type %s" % (
-                                getsourcefile(function) + 
-                                ' ' + function.__name__,
-                                con[0], type(received_arg),
-                                eval(con[1])
+                    if con[0] in kwargs.keys() or len(args) > paras_index.index(con[0]):
+                        # To avoid default parameters
+                        try:
+                            if not isinstance(eval(con[1]), type):
+                                raise TypeError()
+                        except Exception:
+                            raise TypeError(
+                                "function_parameters(%s(%s=%s)) " % (
+                                    getsourcefile(function) + 
+                                    ' ' + function.__name__,
+                                    con[0], con[1]
+                                ) + "wrong type given in __doc__" 
                             )
-                        )
+                        received_arg = kwargs.get(con[0])
+                        if not received_arg and con[0] in paras_index:
+                            # to avoid kwarg when it's arg
+                            received_arg = args[paras_index.index(con[0])]
+                        if type(received_arg) != eval(con[1]):
+                            raise TypeError(
+                                "%s(%s=%s) requires type %s" % (
+                                    getsourcefile(function) + 
+                                    ' ' + function.__name__,
+                                    con[0], type(received_arg),
+                                    eval(con[1])
+                                )
+                            )
         return function(*args, **kwargs)
     return wrapper
 

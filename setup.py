@@ -31,9 +31,9 @@ from setuptools import setup
 
 setup(
     name='static_parameters',
-    version='0.3',
+    version='0.4',
     url='https://github.com/mrf345/static_parameters/',
-    download_url='https://github.com/mrf345/static_parameters/archive/0.3.tar.gz',
+    download_url='https://github.com/mrf345/static_parameters/archive/0.4.tar.gz',
     license='MIT',
     author='Mohamed Feddad',
     author_email='mrf345@gmail.com',
